@@ -41,6 +41,7 @@ public class Solution {
         if(A.val==B||A.val==C){
             return A;
         }
+     // finding left and right root node and them lowest common
         TreeNode l=findroot(A.left,B,C);
         TreeNode r=findroot(A.right,B,C);
         if(l!=null&&r!=null){
@@ -48,6 +49,7 @@ public class Solution {
         }
         if(l!=null){return l;}
         if(r!=null){return r;}
+     //if it does n't find anything then return null
         return null;
     }
 }
