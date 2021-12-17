@@ -1,0 +1,20 @@
+//java code to check binary search tree is valid or not
+public class Solution {
+    public int isValidBST(TreeNode A) {
+       if(isbst(A,Integer.MIN_VALUE,Integer.MAX_VALUE)==true){
+           return 1;
+       }else{
+           return 0;
+       }
+    }
+    public boolean isbst(TreeNode A,int min,int max){
+        if(A==null){
+            return true;
+        }
+        if(A.val<min||A.val>max){
+            return false;
+        }
+       return (isbst(A.left,min,A.val-1)&& isbst(A.right,A.val+1,max));
+    }
+
+}
