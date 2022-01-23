@@ -50,4 +50,25 @@ public class Solution {
         
         return dp[n-1];}}
 
-//Tabulation Method
+//Space Optimized
+
+import java.util.*;
+public class Solution {
+	public static int maximumNonAdjacentSum(ArrayList<Integer> nums) {
+		// Write your code here.
+        int n=nums.size();
+        int prev=0;
+        int prev1=0;
+        prev=nums.get(0);
+      int max=0;
+        for(int i=1;i<n;i++){
+            int pick=nums.get(i)+prev1;
+                
+            int notPick=prev;
+            
+           int cur=Math.max(pick,notPick);
+            prev1=prev;
+            prev=cur;
+        }
+        return prev;
+    }}
