@@ -1,4 +1,8 @@
+//Recursion Method
+//Maximum Sum of no adjacent elements.java
+//coding ninja problem
 import java.util.*;
+
 public class Solution {
 	public static int maximumNonAdjacentSum(ArrayList<Integer> nums) {
 		// Write your code here.
@@ -18,9 +22,32 @@ public class Solution {
             return dp[n];
         }
         int pick = a.get(n)+sum(n-2,a,dp);
-        int notPick=0+sum(n-1,a,dp);
+        int notPick=sum(n-1,a,dp);
         return dp[n]=Math.max(pick,notPick);
     }
 }
-//Maximum Sum of no adjacent elements.java
-//coding ninja problem
+
+// tabulation method
+import java.util.*;
+public class Solution {
+	public static int maximumNonAdjacentSum(ArrayList<Integer> nums) {
+		// Write your code here.
+        //tabulation method
+           int n=nums.size();
+        int dp[]=new int[n];
+        dp[0]=nums.get(0);
+        for(int i=1;i<n;i++){
+            dp[i]=-1;
+        }
+        for(int i=1;i<n;i++){
+            int pick=nums.get(i);
+                if(i>1){
+                    pick+=dp[i-2];
+                }
+            int notPick=dp[i-1];
+            dp[i]=Math.max(pick,notPick);
+        }
+        
+        return dp[n-1];}}
+
+//Tabulation Method
